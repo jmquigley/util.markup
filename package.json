@@ -1,0 +1,90 @@
+{
+	"name": "util.markup",
+	"version": "0.0.1",
+	"author": "jmquigley <jmquigley@outlook.com>",
+	"description": "Tools for manipulating markup documents",
+	"private": false,
+	"debug": true,
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jmquigley/util.markup"
+	},
+	"bugs": {
+		"url": "https://github.com/jmquigley/util.markup/issues"
+	},
+	"engines": {
+		"node": ">=7.x"
+	},
+	"bin": {
+		"markup": "./cli.js"
+	},
+	"main": "./index.umd.min.js",
+	"module": "./index.es.min.js",
+	"types": "./index.d.ts",
+	"files": [
+		"cli.js",
+		"index.js",
+		"index.*.min.js",
+		"index.d.ts"
+	],
+	"dependencies": {
+		"lodash": "^4.17.11",
+		"yargs": "^13.2.2"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.4.3",
+		"@babel/core": "^7.4.3",
+		"@babel/plugin-proposal-class-properties": "^7.4.0",
+		"@babel/plugin-proposal-decorators": "^7.4.0",
+		"@babel/plugin-transform-modules-commonjs": "^7.4.3",
+		"@babel/plugin-transform-runtime": "^7.4.3",
+		"@babel/preset-env": "^7.4.3",
+		"@babel/preset-typescript": "^7.3.3",
+		"@babel/runtime": "^7.4.3",
+		"@types/fs-extra": "5.0.5",
+		"@types/jest": "^24.0.11",
+		"@types/lodash": "^4.14.123",
+		"@types/node": "^11.13.0",
+		"@types/power-assert": "^1.5.0",
+		"@types/yargs": "^13.0.0",
+		"babel-loader": "^8.0.5",
+		"babel-minify": "^0.5.0",
+		"babel-plugin-espower": "^3.0.1",
+		"babel-preset-minify": "^0.5.0",
+		"coveralls": "^3.0.3",
+		"fs-extra": "^7.0.1",
+		"jest": "^24.7.1",
+		"power-assert": "^1.6.1",
+		"prettier": "^1.16.4",
+		"tslint": "^5.15.0",
+		"tslint-config-prettier": "^1.18.0",
+		"typescript": "^3.4.2",
+		"util.fixture": "0.0.72",
+		"util.pkgwrap": "^0.0.112",
+		"webpack": "^4.29.6",
+		"webpack-cli": "^3.3.0"
+	},
+	"pkgwrap": {
+		"cleanup": [
+			"docs",
+			"tsconfig.tsbuildinfo"
+		]
+	},
+	"scripts": {
+		"all": "yarn install && NODE_ENV=production yarn build && yarn docs && yarn test && yarn manifest",
+		"build": "yarn lint && yarn prettier && yarn build:umd && yarn build:es && yarn build:cjs",
+		"build:cjs": "babel index.ts --sourceType module --out-file index.cjs.min.js",
+		"build:es": "minify index.js --sourceType module --out-file index.es.min.js",
+		"build:umd": "pkgwrap --build --webpack",
+		"build:cli": "babel cli.js --out-file cli.js",
+		"clean": "pkgwrap --clean",
+		"clean:dist": "yarn clean && rimraf node_modules/ yarn.lock",
+		"coverage": "pkgwrap --coverage --jest",
+		"docs": "pkgwrap --docs",
+		"lint": "pkgwrap --lint",
+		"manifest": "npm pack --dry-run",
+		"prettier": "prettier --write \"**/*.{ts,tsx,js,json,yaml,yml,css}\"",
+		"test": "jest"
+	}
+}

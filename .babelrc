@@ -1,0 +1,10 @@
+{
+	"presets": ["minify", "@babel/env", "@babel/typescript"],
+	"plugins": [
+		"@babel/plugin-transform-modules-commonjs",
+		"@babel/transform-runtime",
+		["@babel/proposal-decorators", {"legacy": true}],
+		"@babel/plugin-proposal-class-properties"
+	],
+	"comments": false
+}
