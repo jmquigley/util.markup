@@ -1,5 +1,8 @@
 {
 	"extends": ["tslint:recommended", "tslint-config-prettier"],
+	"linterOptions": {
+		"exclude": ["./dist/**", "node_modules/**", "./**/*.d.ts"]
+	},
 	"rules": {
 		"curly": [true, "ignore-same-line"],
 		"interface-name": [true, "never-prefix"],
@@ -14,6 +17,7 @@
 		"no-var-requires": false,
 		"object-literal-shorthand": false,
 		"object-literal-sort-keys": false,
+		"only-arrow-functions": false,
 		"variable-name": [
 			true,
 			"ban-keywords",

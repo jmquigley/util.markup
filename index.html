@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8" />
+	<head>
+		<title>util.markup test</title>
+		<link rel="icon" href="data:," />
+
+		<script
+			type="text/javascript"
+			src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.7.3/localforage.min.js"
+		></script>
+
+		<script type="text/javascript" src="./index.umd.min.js"></script>
+
+		<style>
+			h1 {
+				border-bottom: 2px solid red;
+			}
+			h2 {
+				background: #efefef;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Markup Test</h1>
+		<div id="pdf"></div>
+	</body>
+	<script>
+		const md = `
+# Header 1\n
+## Header 2\n
+### Header 3\n
+`;
+		const parser = MarkupFactory.instance(MarkupMode.markdown);
+
+		parser.toPDF(md).then((output) => {
+			document.body.style.width = "600xp";
+
+			const divpdf = document.getElementById("pdf");
+			const iframe = document.createElement("iframe");
+
+			iframe.style.width = "800px";
+			iframe.style.height = "600px";
+			iframe.src = output;
+
+			divpdf.appendChild(iframe);
+		});
+	</script>
+</html>

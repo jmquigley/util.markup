@@ -9,5 +9,59 @@
 [![NPM](https://img.shields.io/npm/v/util.markup.svg)](https://www.npmjs.com/package/util.markup)
 [![Coverage Status](https://coveralls.io/repos/github/jmquigley/util.markup/badge.svg?branch=master)](https://coveralls.io/github/jmquigley/util.markup?branch=master)
 
+This module is a wrapper to handle the parsing of multiple types of markup documents and outputting the results to either HTML or PDF.  It uses a static factory method to retrieve a parser instance.  This parser instance contains two promise based methods: `toHTML` and `toPDF`.  The first parameter to both methods is a string containing the markup content to be parsed.  The resolution of the promise is a string representing the requested output type.  This factory handles the following markup types:
 
-WIP do not use
+- [asciidoc](https://www.npmjs.com/package/asciidoctor)
+- [markdown](https://www.npmjs.com/package/remarkable)
+- [restructuredtext](https://www.npmjs.com/package/restructured)
+
+
+## Installation
+
+This module uses [yarn](https://yarnpkg.com/en/) to manage dependencies and run scripts for development.
+
+To install as an application dependency:
+```
+$ yarn add util.markup
+```
+
+To build the production version of the app and run all tests:
+```
+$ yarn run all
+```
+
+
+## Usage
+
+To retrieve the MarkupFactory parser instance use the `.instance()` factory method:
+
+```javascript
+import MarkupFactory, {MarkupMode, MarkupTool} from "util.markup";
+
+const content: string = '
+# Header 1
+
+Some text with *bold*
+
+# Header 2
+
+Some more text
+';
+
+const parser: MarkupTool = MarkupFactory.instance(MarkupMode.markdown);
+
+parser.toHTML(content)
+    .then((artifact: string) => {
+        // Do something with the output HTML string
+    })
+    .catch((err: string) => {
+        // Caputure possible error
+    });
+```
+
+
+## API
+
+#### functions
+
+#### properties

@@ -1,0 +1,315 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Retrieve a asciidoc parser 1`] = `
+"<div class=\\"paragraph\\">
+<p>some .</p>
+</div>
+<h1 id=\\"_test\\" class=\\"sect0\\">test</h1>
+<div class=\\"sect1\\">
+<h2 id=\\"_test_2\\">test</h2>
+<div class=\\"sectionbody\\">
+<div class=\\"sect2\\">
+<h3 id=\\"_test_3\\">test</h3>
+<div class=\\"sect3\\">
+<h4 id=\\"_test_4\\">test</h4>
+<div class=\\"sect4\\">
+<h5 id=\\"_test_5\\">test</h5>
+<div class=\\"paragraph\\">
+<p>test
+<mark>#</mark>#</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h1 id=\\"_test_6\\" class=\\"sect0\\">test</h1>
+<div class=\\"sect1\\">
+<h2 id=\\"_test_7\\">test</h2>
+<div class=\\"sectionbody\\">
+<div class=\\"sect2\\">
+<h3 id=\\"_test_8\\">test</h3>
+<div class=\\"sect3\\">
+<h4 id=\\"_test_9\\">test</h4>
+<div class=\\"sect4\\">
+<h5 id=\\"_test_10\\">test</h5>
+<div class=\\"sect5\\">
+<h6 id=\\"_test_11\\">test</h6>
+<div class=\\"paragraph\\">
+<p>this is <strong>bold</strong>
+this is <em>italic</em>
+this is mono or <code>mono</code>
+this is <span class=\\"underline\\">underline</span>
+this is <span class=\\"line-through\\">strikethrough</span></p>
+</div>
+<div class=\\"paragraph\\">
+<p><span class=\\"red\\">this is a span of text</span></p>
+</div>
+<div class=\\"paragraph\\">
+<p>[[block id element]]</p>
+</div>
+<div class=\\"paragraph\\">
+<p>Symbols: &#174; &#169; (V) &#8482; &#8594; &#8592; &#8658; &#8656; &#182;&#8201;&#8212;&#8201;</p>
+</div>
+<div class=\\"dlist\\">
+<dl>
+<dt class=\\"hdlist1\\">ifdef</dt>
+<dd>
+<p>ifndef:: endif:: ifeval:: include:: include1:: sys:: eval:: template::</p>
+</dd>
+</dl>
+</div>
+<div class=\\"paragraph\\">
+<p><a href=\\"http://www.google.com\\">Google</a> \\"this is some more text\\"
+<a href=\\"https://www.example.com\\">Example</a>
+<a href=\\"ftp://www.example.com\\">Example</a>
+<a href=\\"file:///www.example.com\\">Example</a>
+<a href=\\"http://www.example.com\\">Another Example</a></p>
+</div>
+<div class=\\"paragraph\\">
+<p><a href=\\"http://www.example.com\\" class=\\"bare\\">http://www.example.com</a></p>
+</div>
+<div class=\\"paragraph\\">
+<p><a href=\\"mailto:something@example.com\\">something@example.com</a>
+<a href=\\"mailto:joe.bloggs@foobar.com\\">email Joe Bloggs</a></p>
+</div>
+<div class=\\"paragraph\\">
+<p><a href=\\"asciidoc\\">This document</a>
+.Thumbnail linked to full image
+<span class=\\"image\\"><a class=\\"image\\" href=\\"/images/font/640-screen2.gif\\"><img src=\\"/images/font/640-screen2.gif\\" alt=\\"My screenshot\\" width=\\"128\\"></a></span></p>
+</div>
+<div class=\\"listingblock\\">
+<div class=\\"title\\">Optional title</div>
+<div class=\\"content\\">
+<pre>let blah: number = \\"stuff\\";
+
+function test() {
+  if (test) {
+    for (let i = 0; i &lt; 10; i++) {
+      console.log('blah');
+    }
+  }
+}</pre>
+</div>
+</div>
+<div class=\\"listingblock\\">
+<div class=\\"content\\">
+<pre> More Code</pre>
+</div>
+</div>
+<div class=\\"listingblock\\">
+<div class=\\"content\\">
+<pre>Code</pre>
+</div>
+</div>
+<div class=\\"listingblock\\">
+<div class=\\"content\\">
+<pre>SQL&gt; describe aircraft;
+ Name                   Null?  Type
+ ----------------------------------------- -------- ----------------------------
+ SERIAL_NO                 NOT NULL NUMBER(38)
+ MODEL_NO                 NOT NULL VARCHAR2(15)
+
+SQL&gt; describe flight;
+ Name                   Null?  Type
+ ----------------------------------------- -------- ----------------------------
+ NUM                    NOT NULL NUMBER(38)
+ ORIGIN                       VARCHAR2(3)
+ DEST                        VARCHAR2(3)
+ DEP_TIME                      VARCHAR2(5)
+ ARR_TIME                      VARCHAR2(5)</pre>
+</div>
+</div>
+<div class=\\"paragraph\\">
+<p>between</p>
+</div>
+<div class=\\"literalblock\\">
+<div class=\\"content\\">
+<pre>// This is another line comment</pre>
+</div>
+</div>
+<div class=\\"olist arabic\\">
+<ol class=\\"arabic\\">
+<li>
+<p>slkdjfl</p>
+<div class=\\"olist loweralpha\\">
+<ol class=\\"loweralpha\\" type=\\"a\\">
+<li>
+<p>laskdjflkajsdlfkj</p>
+<div class=\\"olist lowerroman\\">
+<ol class=\\"lowerroman\\" type=\\"i\\">
+<li>
+<p>alskjdflaksjdf</p>
+<div class=\\"olist upperalpha\\">
+<ol class=\\"upperalpha\\" type=\\"A\\">
+<li>
+<p>asldkfjalksdjflkasjdf
+.
+..</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>alsdjflaksjdflkajs</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class=\\"paragraph\\">
+<p>-
+*</p>
+</div>
+<div class=\\"paragraph\\">
+<p><strong>
+</strong>*</p>
+</div>
+<div class=\\"paragraph\\">
+<p>1.
+2.
+3.
+4.</p>
+</div>
+<div class=\\"olist arabic\\">
+<ol class=\\"arabic\\">
+<li>
+<p>alkjsdf lakjsd lfk</p>
+<div class=\\"ulist\\">
+<ul>
+<li>
+<p>alksdj flasjd flakjds f</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>laskjd flakjsd flkajd f</p>
+<div class=\\"ulist\\">
+<ul>
+<li>
+<p>slk <strong>djflsk</strong> jdf</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>alksdjflkasjdflkaj sdlkfj</p>
+<div class=\\"olist loweralpha\\">
+<ol class=\\"loweralpha\\" type=\\"a\\">
+<li>
+<p>alskdjflkajsdlfkja</p>
+</li>
+<li>
+<p>alksjdflkajsdlkfjalsdkfj</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>alksdjflkasjdfkl</p>
+</li>
+<li>
+<p>alskdj <em>flaksjdflkaj</em> sdfkljasldkfjlasdkfj</p>
+<div class=\\"ulist\\">
+<ul>
+<li>
+<p>laskdj flkasj dflkaj</p>
+<div class=\\"ulist\\">
+<ul>
+<li>
+<p>alskdjflaksdjf</p>
+<div class=\\"ulist\\">
+<ul>
+<li>
+<p>alksdjflaksdjfklajsdf</p>
+</li>
+<li>
+<p>alksdjflaksdjf</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>alksjdflkajsdfklj</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>laksjdflaksdjflkajsdlfkjklajsdlfkjalsdkf</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class=\\"paragraph\\">
+<p>TODO: lorem ipsum
+FIXME: lorem ipsum
+IMPORTANT: lorem ipsum
+WARNING: lorem ipsum
+TIP: lorem ipsum</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>"
+`;
+
+exports[`Retrieve a markdown parser and convert to HTML 1`] = `
+"<h1>text</h1>
+<h2>text</h2>
+<h3>text</h3>
+<h4>text</h4>
+<h5>text</h5>
+<h6>text</h6>
+<h1>text</h1>
+<p>lorem ipsum</p>
+<h2>text</h2>
+<p>lorem ipsum</p>
+<p><em>italic</em>
+<strong>bold</strong>
+<code>monospace</code>
+<em>underline</em>
+~strikethrough~</p>
+<hr>
+<hr>
+<hr>
+<p>&lt;!-- comment block --&gt;</p>
+<p>&lt;!--
+comment block
+--&gt;</p>
+<ul>
+<li>lorem ipsum 1</li>
+<li>lorem ipsum 2</li>
+</ul>
+<ul>
+<li>lorem ipsum 1</li>
+<li>lorem ipsum 2</li>
+</ul>
+<ul>
+<li>lorem ipsum 1</li>
+<li>tlorem ipsum 2</li>
+</ul>
+<ol>
+<li>lorem ipsum 1</li>
+<li>lorem ipsum 2</li>
+<li>lorem ipsum 3
+a. lorem ipsum
+b. lorem ipsum
+c. lorem ipsum</li>
+</ol>
+<p>TODO: lorem ipsum
+FIXME: lorem ipsum
+IMPORTANT: lorem ipsum
+WARNING: lorem ipsum
+TIP: lorem ipsum</p>
+"
+`;

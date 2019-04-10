@@ -1,6 +1,7 @@
 {
 	"presets": ["minify", "@babel/env", "@babel/typescript"],
 	"plugins": [
+		"babel-plugin-espower",
 		"@babel/plugin-transform-modules-commonjs",
 		"@babel/transform-runtime",
 		["@babel/proposal-decorators", {"legacy": true}],
