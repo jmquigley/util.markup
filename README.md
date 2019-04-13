@@ -85,3 +85,16 @@ parser.parse(options)
   - `markup {string}` - the markup document contents that will be parsed into HTML
   - `filename {string}` - the output file name where the HTML content will be saved
   - `css: {string}` - custom, inline CSS that will be applied to the output HTML document
+
+
+## CLI
+
+The tool installs a command line version of this library to a program named `markup`.  It uses the following options:
+
+```
+markup -t {asciidoc|md|rst} -i {input file} -o {output file}
+```
+
+- `-t` - the type of file to process (markdown, asciidoc, or restructuredtext)
+- `-i` - the input file to parse
+- `-o` - the output HTML file created

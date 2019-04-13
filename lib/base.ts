@@ -45,6 +45,11 @@ export abstract class MarkupParser {
 
 	public constructor() {}
 
+	/**
+	 * Parses the options object passed to the parse function.
+	 * @param options {MarkupToolOptions} - an object that contains options
+	 * for the parser.
+	 */
 	protected parseOptions(options: MarkupToolOptions) {
 		this._options = Object.assign({...defaultOptions}, options);
 
