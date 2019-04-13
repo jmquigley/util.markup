@@ -1,6 +1,6 @@
 {
 	"name": "util.markup",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "Tools for manipulating markup documents",
 	"private": false,
@@ -20,13 +20,11 @@
 		"markup": "./cli.js"
 	},
 	"main": "./index.umd.min.js",
-	"module": "./index.es.min.js",
-	"types": "./index.d.ts",
+	"types": "./index.umd.d.ts",
 	"files": [
 		"cli.js",
-		"index.js",
 		"index.*.min.js",
-		"index.d.ts"
+		"index.umd.d.ts"
 	],
 	"dependencies": {
 		"asciidoctor": "^2.0.0",
@@ -36,10 +34,10 @@
 		"restructured": "^0.0.11",
 		"sprintf-js": "https://github.com/jmquigley/sprintf.js.git#dc62b1c",
 		"util.constants": "^0.0.26",
-		"util.html": "^0.0.5",
+		"util.html": "^0.0.6",
 		"util.join": "^0.0.25",
 		"util.promise": "^0.0.27",
-		"util.string": "^0.0.26",
+		"util.string": "^0.0.27",
 		"util.toolbox": "^0.0.77",
 		"yargs": "^13.2.2"
 	},
@@ -68,6 +66,7 @@
 		"babel-preset-minify": "^0.5.0",
 		"coveralls": "^3.0.3",
 		"debug": "^4.1.1",
+		"dts-bundle-generator": "^3.0.0",
 		"jest": "^24.7.1",
 		"jest-environment-jsdom-fourteen": "^0.1.0",
 		"power-assert": "^1.6.1",
@@ -83,12 +82,13 @@
 	"pkgwrap": {
 		"cleanup": [
 			"docs",
+			"output.html",
 			"tsconfig.tsbuildinfo"
 		]
 	},
 	"scripts": {
 		"all": "yarn install && NODE_ENV=production yarn build && yarn docs && yarn test && yarn manifest",
-		"build": "yarn lint && yarn prettier && pkgwrap --build --webpack",
+		"build": "yarn lint && yarn prettier && pkgwrap --build --webpack && yarn types",
 		"build:cli": "babel cli.js --out-file cli.js",
 		"clean": "pkgwrap --clean",
 		"clean:dist": "yarn clean && rimraf node_modules/ yarn.lock",
@@ -97,6 +97,7 @@
 		"lint": "pkgwrap --lint",
 		"manifest": "npm pack --dry-run",
 		"prettier": "prettier --write \"**/*.{ts,tsx,js,json,yaml,yml,css}\"",
-		"test": "jest"
+		"test": "jest",
+		"types": "dts-bundle-generator --no-check -o ./index.umd.d.ts index.ts"
 	}
 }

@@ -21,12 +21,12 @@ export class Asciidoc extends MarkupParser implements MarkupTool {
 					this.parseOptions(options);
 
 					const html = asciidoctor.convert(this._options.markup);
-					this.writeFile(this._options.filename, html);
+					this.writeFile(this._options.outfile, html);
 					const doc = parseHTML(html);
 
 					resolve({
 						doc,
-						filename: this._options.filename,
+						filename: this._options.outfile,
 						html
 					});
 				} catch (err) {

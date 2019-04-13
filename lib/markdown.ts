@@ -21,12 +21,12 @@ export class Markdown extends MarkupParser implements MarkupTool {
 
 					const md = new Remarkable();
 					const html = md.render(this._options.markup);
-					this.writeFile(this._options.filename, html);
+					this.writeFile(this._options.outfile, html);
 					const doc = parseHTML(html);
 
 					resolve({
 						doc,
-						filename: this._options.filename,
+						filename: this._options.outfile,
 						html
 					});
 				} catch (err) {

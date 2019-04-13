@@ -1,14 +1,16 @@
 import "util.string";
 
+import {encoding} from "util.constants";
 import {isNode} from "util.toolbox";
 
 const debug = require("debug")("util.markup::markdown");
 
 export enum MarkupMode {
-	asciidoc,
-	markdown,
-	restructuredtext,
-	text
+	asciidoc = "asciidoc",
+	markdown = "markdown",
+	md = "markdown",
+	restructuredtext = "restructuredtext",
+	rst = "restructuredtext"
 }
 
 export interface HTMLResults {
@@ -19,9 +21,10 @@ export interface HTMLResults {
 }
 
 export interface MarkupToolOptions {
-	markup: string;
 	css?: string;
-	filename?: string;
+	infile?: string;
+	markup?: string;
+	outfile?: string;
 }
 
 export interface MarkupTool {
@@ -30,7 +33,8 @@ export interface MarkupTool {
 
 const defaultOptions: MarkupToolOptions = {
 	markup: "",
-	filename: "",
+	infile: "",
+	outfile: "",
 	css: `
 		h1 {color: #2f2f2f};
 	`
@@ -43,11 +47,19 @@ export abstract class MarkupParser {
 
 	protected parseOptions(options: MarkupToolOptions) {
 		this._options = Object.assign({...defaultOptions}, options);
-		debug(
-			"parse -> markup: %O, filename: %o",
-			this._options.markup,
-			this._options.filename
-		);
+
+		if (isNode && this._options.markup === "") {
+			debug("read file from command line");
+			const fs = require("fs-extra");
+			if (fs.existsSync(this._options.infile)) {
+				this._options.markup = fs.readFileSync(
+					this._options.infile,
+					encoding
+				);
+			}
+		}
+
+		debug("parseOptions -> %O", this._options);
 	}
 
 	/**

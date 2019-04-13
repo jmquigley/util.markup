@@ -59,7 +59,7 @@ export class Restructuredtext extends MarkupParser implements MarkupTool {
 
 					if (pkg.debug) {
 						this.writeFile(
-							`${this._options.filename}.json`,
+							`${this._options.outfile}.json`,
 							JSON.stringify(elements, null, 4)
 						);
 
@@ -67,12 +67,12 @@ export class Restructuredtext extends MarkupParser implements MarkupTool {
 					}
 
 					const html = this.buildHTML(elements);
-					this.writeFile(this._options.filename, html);
+					this.writeFile(this._options.outfile, html);
 					const doc = parseHTML(html);
 
 					resolve({
 						doc,
-						filename: this._options.filename,
+						filename: this._options.outfile,
 						html
 					});
 				} catch (err) {

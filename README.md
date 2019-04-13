@@ -9,7 +9,7 @@
 [![NPM](https://img.shields.io/npm/v/util.markup.svg)](https://www.npmjs.com/package/util.markup)
 [![Coverage Status](https://coveralls.io/repos/github/jmquigley/util.markup/badge.svg?branch=master)](https://coveralls.io/github/jmquigley/util.markup?branch=master)
 
-This module is a wrapper to handle the parsing of multiple types of markup documents and outputting the results to HTML.  It uses a static factory method to retrieve a parser instance.  This parser instance contains a promise based method named `parse`.  The first parameter is a string containing the markup content to be parsed.  The second parameter is an option filename where the HTML output will be stored.  The resolution of the promise is an object with `HTMLResults` as the structure.  This factory handles the following markup types:
+This module is a wrapper to handle the parsing of multiple types of markup documents and outputting the results to HTML.  It uses a static factory method to retrieve a parser instance.  This parser instance contains a promise based method named `parse`.  Parameters are passed to this method using a `MarkupToolOptions` object.  The resolution of the promise is an object with `HTMLResults` as the structure.  This factory handles the following markup types:
 
 - [asciidoc](https://www.npmjs.com/package/asciidoctor)
 - [markdown](https://www.npmjs.com/package/remarkable)
@@ -71,4 +71,17 @@ parser.parse(options)
 
 #### functions
 
+- `.parse(options: MarkupToolOptions)` - the only method available from the factory object.  This will parse the given input markup file.  It is Promise based, so the reslution of the promise return `HTMLResults`.
+
 #### properties
+
+- `HTMLResults` - the results of the `parse` method.
+  - `doc {Document}` - HTML Document instance of nodes
+  - `err {string}` - error message if the parsing of the document fails
+  - `filename {string}` - file where the HTML output was stored (in a Node/electron environment only)
+  - `html {string}` - the HTML output result from parsing the markdown type
+
+- `MarkupToolOptions` - options passed to the `parse` method:
+  - `markup {string}` - the markup document contents that will be parsed into HTML
+  - `filename {string}` - the output file name where the HTML content will be saved
+  - `css: {string}` - custom, inline CSS that will be applied to the output HTML document

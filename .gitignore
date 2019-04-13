@@ -48,3 +48,4 @@ tmp-unit-test-data
 !jest.config.js
 !jest.setup.js
 tsconfig.tsbuildinfo
+output.html
