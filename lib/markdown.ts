@@ -20,7 +20,8 @@ export class Markdown extends MarkupParser implements MarkupTool {
 					this.parseOptions(options);
 
 					const md = new Remarkable();
-					const html = md.render(this._options.markup);
+					let html = md.render(this._options.markup);
+					html = this.applyTemplate(html);
 					this.writeFile(this._options.outfile, html);
 					const doc = parseHTML(html);
 

@@ -1,5 +1,6 @@
 import "util.string";
 
+import {sprintf} from "sprintf-js";
 import {encoding} from "util.constants";
 import {isNode} from "util.toolbox";
 
@@ -36,14 +37,42 @@ const defaultOptions: MarkupToolOptions = {
 	infile: "",
 	outfile: "output.html",
 	css: `
-		h1 {color: #2f2f2f};
+		h2 {color: #ea1a1a};
 	`
 };
+
+const template: string = `
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="util.markup" />
+		<style>
+		%s
+		</style>
+	</head>
+
+	<body>
+	%s
+	</body>
+</html>
+`;
 
 export abstract class MarkupParser {
 	protected _options: MarkupToolOptions = {...defaultOptions};
 
 	public constructor() {}
+
+	/**
+	 * Takes the current markup file and wraps a template around it.  It also
+	 * injects CSS for custom styling.
+	 * @param markup {string} - the markup that will be wrapped by the tempalte
+	 * @returns a new HTML string with the template and CSS applied
+	 */
+	protected applyTemplate(markup: string): string {
+		return sprintf(template, this._options.css, markup);
+	}
 
 	/**
 	 * Parses the options object passed to the parse function.

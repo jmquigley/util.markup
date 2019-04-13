@@ -1,7 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Retrieve a asciidoc parser and convert to HTML 1`] = `
-"<div class=\\"paragraph\\">
+"
+<!DOCTYPE html>
+
+<html lang=\\"en\\">
+	<head>
+		<meta charset=\\"utf-8\\" />
+		<meta name=\\"description\\" content=\\"util.markup\\" />
+		<style>
+		
+		h2 {color: #ea1a1a};
+	
+		</style>
+	</head>
+
+	<body>
+	<div class=\\"paragraph\\">
 <p>some .</p>
 </div>
 <div class=\\"sect1\\">
@@ -256,11 +271,29 @@ TIP: lorem ipsum</p>
 </div>
 </div>
 </div>
-</div>"
+</div>
+	</body>
+</html>
+"
 `;
 
 exports[`Retrieve a markdown parser and convert to HTML 1`] = `
-"<h1>text</h1>
+"
+<!DOCTYPE html>
+
+<html lang=\\"en\\">
+	<head>
+		<meta charset=\\"utf-8\\" />
+		<meta name=\\"description\\" content=\\"util.markup\\" />
+		<style>
+		
+		h2 {color: #ea1a1a};
+	
+		</style>
+	</head>
+
+	<body>
+	<h1>text</h1>
 <h2>text</h2>
 <h3>text</h3>
 <h4>text</h4>
@@ -307,11 +340,29 @@ FIXME: lorem ipsum
 IMPORTANT: lorem ipsum
 WARNING: lorem ipsum
 TIP: lorem ipsum</p>
+
+	</body>
+</html>
 "
 `;
 
 exports[`Retrieve a restructuredtext parser and convert to HTML 1`] = `
 "
+<!DOCTYPE html>
+
+<html lang=\\"en\\">
+	<head>
+		<meta charset=\\"utf-8\\" />
+		<meta name=\\"description\\" content=\\"util.markup\\" />
+		<style>
+		
+		h2 {color: #ea1a1a};
+	
+		</style>
+	</head>
+
+	<body>
+	
 <div>
 
 <h1>text</h1>
@@ -432,5 +483,8 @@ TIP: lorem ipsum
 
 
 </div>
+
+	</body>
+</html>
 "
 `;

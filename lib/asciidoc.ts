@@ -20,7 +20,8 @@ export class Asciidoc extends MarkupParser implements MarkupTool {
 				try {
 					this.parseOptions(options);
 
-					const html = asciidoctor.convert(this._options.markup);
+					let html = asciidoctor.convert(this._options.markup);
+					html = this.applyTemplate(html);
 					this.writeFile(this._options.outfile, html);
 					const doc = parseHTML(html);
 

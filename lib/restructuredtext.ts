@@ -68,7 +68,8 @@ export class Restructuredtext extends MarkupParser implements MarkupTool {
 						this.showRsTElements(elements);
 					}
 
-					const html = this.buildHTML(elements);
+					let html = this.buildHTML(elements);
+					html = this.applyTemplate(html);
 					this.writeFile(this._options.outfile, html);
 					const doc = parseHTML(html);
 
