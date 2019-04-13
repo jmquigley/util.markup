@@ -11,7 +11,7 @@ afterAll((done) => {
 	cleanup({done, message: path.basename(__filename)});
 });
 
-test("Retrieve a asciidoc parser", () => {
+test("Retrieve a asciidoc parser and convert to HTML", () => {
 	const parser: MarkupTool = MarkupFactory.instance(MarkupMode.asciidoc);
 	assert(parser);
 	const fixture = new Fixture("asciidoc");
@@ -21,12 +21,12 @@ test("Retrieve a asciidoc parser", () => {
 	const outfile = join(fixture.dir, "test.html");
 
 	return parser
-		.parse(txt, outfile)
-		.then((output: HTMLResults) => {
-			expect(output.html).toMatchSnapshot();
-			assert(fs.existsSync(output.filename));
+		.parse({markup: txt, filename: outfile})
+		.then((results: HTMLResults) => {
+			expect(results.html).toMatchSnapshot();
+			assert(fs.existsSync(results.filename));
 
-			output.doc.querySelectorAll("*").forEach((it: any) => {
+			results.doc.querySelectorAll("*").forEach((it: any) => {
 				assert(it);
 				debug(" -> %O, %o", it, it.nodeName);
 			});
@@ -44,12 +44,12 @@ test("Retrieve a markdown parser and convert to HTML", () => {
 	const outfile = join(fixture.dir, "test.html");
 
 	return parser
-		.parse(md, outfile)
-		.then((output: HTMLResults) => {
-			expect(output.html).toMatchSnapshot();
-			assert(fs.existsSync(output.filename));
+		.parse({markup: md, filename: outfile})
+		.then((results: HTMLResults) => {
+			expect(results.html).toMatchSnapshot();
+			assert(fs.existsSync(results.filename));
 
-			output.doc.querySelectorAll("*").forEach((it: any) => {
+			results.doc.querySelectorAll("*").forEach((it: any) => {
 				assert(it);
 				debug(" -> %O, %o", it, it.nodeName);
 			});
@@ -57,7 +57,27 @@ test("Retrieve a markdown parser and convert to HTML", () => {
 		.catch((err: string) => console.error(err));
 });
 
-test("Retrieve an restructuredtext parser", () => {
-	const parser: MarkupTool = MarkupFactory.instance(MarkupMode.asciidoc);
+test("Retrieve a restructuredtext parser and convert to HTML", () => {
+	const parser: MarkupTool = MarkupFactory.instance(
+		MarkupMode.restructuredtext
+	);
 	assert(parser);
+	const fixture = new Fixture("restructuredtext");
+	assert(fixture);
+	const rst = fixture.read("file.rst");
+	assert(rst);
+	const outfile = join(fixture.dir, "test.html");
+
+	return parser
+		.parse({markup: rst, filename: outfile})
+		.then((results: HTMLResults) => {
+			expect(results.html).toMatchSnapshot();
+			assert(fs.existsSync(results.filename));
+
+			results.doc.querySelectorAll("*").forEach((it: any) => {
+				assert(it);
+				debug(" -> %O, %o", it, it.nodeName);
+			});
+		})
+		.catch((err: string) => console.error(err));
 });

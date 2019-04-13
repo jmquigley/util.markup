@@ -1,40 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Retrieve a asciidoc parser 1`] = `
+exports[`Retrieve a asciidoc parser and convert to HTML 1`] = `
 "<div class=\\"paragraph\\">
 <p>some .</p>
 </div>
-<h1 id=\\"_test\\" class=\\"sect0\\">test</h1>
 <div class=\\"sect1\\">
-<h2 id=\\"_test_2\\">test</h2>
+<h2 id=\\"_test\\">test</h2>
 <div class=\\"sectionbody\\">
 <div class=\\"sect2\\">
-<h3 id=\\"_test_3\\">test</h3>
+<h3 id=\\"_test_2\\">test</h3>
 <div class=\\"sect3\\">
-<h4 id=\\"_test_4\\">test</h4>
+<h4 id=\\"_test_3\\">test</h4>
 <div class=\\"sect4\\">
-<h5 id=\\"_test_5\\">test</h5>
-<div class=\\"paragraph\\">
-<p>test
-<mark>#</mark>#</p>
+<h5 id=\\"_test_4\\">test</h5>
+
 </div>
 </div>
 </div>
 </div>
 </div>
-</div>
-<h1 id=\\"_test_6\\" class=\\"sect0\\">test</h1>
 <div class=\\"sect1\\">
-<h2 id=\\"_test_7\\">test</h2>
+<h2 id=\\"_test_5\\">test</h2>
 <div class=\\"sectionbody\\">
 <div class=\\"sect2\\">
-<h3 id=\\"_test_8\\">test</h3>
+<h3 id=\\"_test_6\\">test</h3>
 <div class=\\"sect3\\">
-<h4 id=\\"_test_9\\">test</h4>
+<h4 id=\\"_test_7\\">test</h4>
 <div class=\\"sect4\\">
-<h5 id=\\"_test_10\\">test</h5>
+<h5 id=\\"_test_8\\">test</h5>
 <div class=\\"sect5\\">
-<h6 id=\\"_test_11\\">test</h6>
+<h6 id=\\"_test_9\\">test</h6>
 <div class=\\"paragraph\\">
 <p>this is <strong>bold</strong>
 this is <em>italic</em>
@@ -72,11 +67,6 @@ this is <span class=\\"line-through\\">strikethrough</span></p>
 <div class=\\"paragraph\\">
 <p><a href=\\"mailto:something@example.com\\">something@example.com</a>
 <a href=\\"mailto:joe.bloggs@foobar.com\\">email Joe Bloggs</a></p>
-</div>
-<div class=\\"paragraph\\">
-<p><a href=\\"asciidoc\\">This document</a>
-.Thumbnail linked to full image
-<span class=\\"image\\"><a class=\\"image\\" href=\\"/images/font/640-screen2.gif\\"><img src=\\"/images/font/640-screen2.gif\\" alt=\\"My screenshot\\" width=\\"128\\"></a></span></p>
 </div>
 <div class=\\"listingblock\\">
 <div class=\\"title\\">Optional title</div>
@@ -179,6 +169,9 @@ SQL&gt; describe flight;
 <ol class=\\"arabic\\">
 <li>
 <p>alkjsdf lakjsd lfk</p>
+</li>
+<li>
+<p>alskdjf laksdjf</p>
 <div class=\\"ulist\\">
 <ul>
 <li>
@@ -189,6 +182,9 @@ SQL&gt; describe flight;
 </li>
 <li>
 <p>laskjd flakjsd flkajd f</p>
+</li>
+<li>
+<p>asldkgjalksdjgalksdgj</p>
 <div class=\\"ulist\\">
 <ul>
 <li>
@@ -311,5 +307,130 @@ FIXME: lorem ipsum
 IMPORTANT: lorem ipsum
 WARNING: lorem ipsum
 TIP: lorem ipsum</p>
+"
+`;
+
+exports[`Retrieve a restructuredtext parser and convert to HTML 1`] = `
+"
+<div>
+
+<h1>text</h1>
+lorem ipsum
+<br /><br />
+
+<h2>text</h2>
+lorem ipsum
+<br /><br />
+
+<h3>text</h3>
+lorem ipsum
+<br /><br />
+
+<h4>text</h4>
+lorem ipsum
+<br /><br />
+
+<h5>test</h5>
+lorem ipsum
+<br /><br />
+
+<h6>test</h6>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus orci ac auctor augue mauris augue neque. Purus semper eget duis at tellus at. Et ultrices neque ornare aenean euismod elementum nisi quis eleifend. Vel orci porta non pulvinar. At auctor urna nunc id. Suscipit tellus mauris a diam maecenas sed. Sit amet nulla facilisi morbi tempus iaculis urna id volutpat. Neque volutpat ac tincidunt vitae semper quis lectus nulla at. Ultrices vitae auctor eu augue ut. Commodo elit at imperdiet dui. Elementum sagittis vitae et leo duis ut diam. Suscipit adipiscing bibendum est ultricies integer quis auctor elit. Neque convallis a cras semper auctor neque vitae. Ultrices neque ornare aenean euismod elementum nisi quis eleifend quam. Nunc aliquet bibendum enim facilisis gravida neque convallis a.
+<br /><br />
+Facilisis leo vel fringilla est ullamcorper. Elit at imperdiet dui accumsan sit amet. Ullamcorper eget nulla facilisi etiam dignissim diam. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. Proin fermentum leo vel orci porta. Ullamcorper sit amet risus nullam. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Facilisis volutpat est velit egestas dui id ornare arcu. Amet est placerat in egestas erat imperdiet. In egestas erat imperdiet sed. Eget est lorem ipsum dolor sit amet consectetur adipiscing elit. Congue quisque egestas diam in arcu cursus euismod quis. Odio pellentesque diam volutpat commodo sed egestas. Non blandit massa enim nec.
+<br /><br />
+<em>italic</em>
+<strong>bold</strong>
+<code>monospace</code>
+<br /><br />
+
+<dl>
+<dt>what</dt><dd>Definition lists associate a term with
+a definition
+<br /><br />
+</dd><dt>how</dt><dd>the term is a one-line phrase, and the
+definition is on eore more paragraphs or
+body elements, indented relative to the term.
+<br /><br />
+</dd></dl>
+<span class=\\"reference\\">reference</span>
+<span class=\\"reference\\">phrase reference</span>
+<span class=\\"reference\\">substitution reference</span>
+<span class=\\"reference\\">1</span>
+<span class=\\"reference\\">CIT2002</span>
+.. [*] This is the first one.
+.. _Python: http://www.python.org/
+<span class=\\"reference\\">Python <http://www.python.org/></span>
+.. image:: images/ball1.gif
+.. <span class=\\"reference\\">biohazard</span> image:: biohazard.png
+<br /><br />
+http://www.example.com
+test@example.com
+<br /><br />
+
+<code><pre>
+let blah: number = \\"stuff\\";
+
+function test() {
+    if (test) {
+        for (let i = 0; i < 10; i++) {
+            console.log('blah');
+        }
+    }
+}
+</pre></code>
+lorem ipsum :attribute: and a :keyword:
+<br /><br />
+
+<div class=\\"line_block\\">
+<br />block&nbsp;text
+<br />block&nbsp;text
+<br />block&nbsp;text
+</div>
+
+<ul>
+<li>lorem ipsum 1</li>
+<li>lorem ipsum 2</li>
+</ul>
+
+<ul>
+<li>lorem ipsum 1</li>
+<li>lorem ipsum 2</li>
+</ul>
+
+<ul>
+<li>lorem ipsum 1</li>
+<li>tlorem ipsum 2</li>
+</ul>
+
+<ol>
+<li>lorem ipsum 1</li>
+<li>lorem ipsum 2</li>
+</ol>
+
+<ol>
+<li>lorem ipsum 1</li>
+<li>lorem ipsum 2</li>
+<li>lorem ipsum 3
+
+<ol>
+<li>lorem ipsum</li>
+<li>lorem ipsum</li>
+<li>lorem ipsum</li>
+</ol></li>
+</ol>
+TODO: lorem ipsum
+FIXME: lorem ipsum
+IMPORTANT: lorem ipsum
+WARNING: lorem ipsum
+TIP: lorem ipsum
+<br /><br />
+
+
+
+
+
+
+</div>
 "
 `;

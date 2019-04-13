@@ -1,5 +1,6 @@
-import {JSDOM} from "jsdom";
-import {isBrowser, isNode} from "util.toolbox";
+import "util.string";
+
+import {isNode} from "util.toolbox";
 
 const debug = require("debug")("util.markup::markdown");
 
@@ -17,34 +18,36 @@ export interface HTMLResults {
 	html?: string;
 }
 
-export interface MarkupTool {
-	parse(markup: string, filename?: string): Promise<HTMLResults>;
+export interface MarkupToolOptions {
+	markup: string;
+	css?: string;
+	filename?: string;
 }
 
+export interface MarkupTool {
+	parse(options: MarkupToolOptions): Promise<HTMLResults>;
+}
+
+const defaultOptions: MarkupToolOptions = {
+	markup: "",
+	filename: "",
+	css: `
+		h1 {color: #2f2f2f};
+	`
+};
+
 export abstract class MarkupParser {
-	private domParser: DOMParser;
+	protected _options: MarkupToolOptions = {...defaultOptions};
 
-	public constructor() {
-		debug("window: %o", (window as any).DOMParser);
+	public constructor() {}
 
-		if (isBrowser() && "DOMParser" in window) {
-			this.domParser = new (window as any).DOMParser();
-		} else {
-			const dom = new JSDOM();
-			this.domParser = new dom.window.DOMParser();
-		}
-	}
-
-	/**
-	 * Takes a string of HTML and uses the DOMParser class to parse it into
-	 * HTML nodes.
-	 * @param html {string} - text string with HTML tags
-	 * @return an HTML Document instance
-	 */
-	public parseHTML(html: string): Document {
-		const doc: Document = this.domParser.parseFromString(html, "text/html");
-		debug("parseHTML: %O", doc);
-		return doc;
+	protected parseOptions(options: MarkupToolOptions) {
+		this._options = Object.assign({...defaultOptions}, options);
+		debug(
+			"parse -> markup: %O, filename: %o",
+			this._options.markup,
+			this._options.filename
+		);
 	}
 
 	/**

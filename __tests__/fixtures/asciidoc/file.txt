@@ -3,9 +3,6 @@
 some {tags}.
 
 test
-====
-
-test
 ----
 
 test
@@ -17,10 +14,7 @@ test
 test
 ++++
 
-test
-####
 
-= test
 == test
 === test
 ==== test
@@ -56,12 +50,6 @@ http://www.example.com
 
 something@example.com
 mailto:joe.bloggs@foobar.com[email Joe Bloggs]
-
-link:asciidoc[This document]
-.Thumbnail linked to full image
-image:/images/font/640-screen2.gif[
-"My screenshot",width=128,
-link="/images/font/640-screen2.gif"]
 
 .Optional title
 [test configuration block for code]
@@ -144,10 +132,11 @@ between
 
 
 1. alkjsdf lakjsd lfk
+2. alskdjf laksdjf
 
 - alksdj flasjd flakjds f
   1. laskjd flakjsd flkajd f
-
+  2. asldkgjalksdjgalksdgj
 - slk *djflsk* jdf
   1. alksdjflkasjdflkaj sdlkfj
     a. alskdjflkajsdlfkja
