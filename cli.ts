@@ -31,3 +31,7 @@ parser.parse({
 	infile: argv.infile,
 	outfile: argv.outfile
 });
+
+if (fs.existsSync(argv.outfile)) {
+	console.log(`Created ${argv.outfile}`);
+}

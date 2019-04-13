@@ -58,10 +58,12 @@ export class Restructuredtext extends MarkupParser implements MarkupTool {
 					const elements = restructured.parse(this._options.markup);
 
 					if (pkg.debug) {
-						this.writeFile(
-							`${this._options.outfile}.json`,
-							JSON.stringify(elements, null, 4)
-						);
+						if (this._options.outfile) {
+							this.writeFile(
+								`${this._options.outfile}.json`,
+								JSON.stringify(elements, null, 4)
+							);
+						}
 
 						this.showRsTElements(elements);
 					}

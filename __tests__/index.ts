@@ -21,7 +21,7 @@ test("Retrieve a asciidoc parser and convert to HTML", () => {
 	const outfile = join(fixture.dir, "test.html");
 
 	return parser
-		.parse({markup: txt, filename: outfile})
+		.parse({markup: txt, outfile})
 		.then((results: HTMLResults) => {
 			expect(results.html).toMatchSnapshot();
 			assert(fs.existsSync(results.filename));
@@ -44,7 +44,7 @@ test("Retrieve a markdown parser and convert to HTML", () => {
 	const outfile = join(fixture.dir, "test.html");
 
 	return parser
-		.parse({markup: md, filename: outfile})
+		.parse({markup: md, outfile})
 		.then((results: HTMLResults) => {
 			expect(results.html).toMatchSnapshot();
 			assert(fs.existsSync(results.filename));
@@ -69,7 +69,7 @@ test("Retrieve a restructuredtext parser and convert to HTML", () => {
 	const outfile = join(fixture.dir, "test.html");
 
 	return parser
-		.parse({markup: rst, filename: outfile})
+		.parse({markup: rst, outfile})
 		.then((results: HTMLResults) => {
 			expect(results.html).toMatchSnapshot();
 			assert(fs.existsSync(results.filename));

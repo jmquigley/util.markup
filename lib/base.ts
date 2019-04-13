@@ -34,7 +34,7 @@ export interface MarkupTool {
 const defaultOptions: MarkupToolOptions = {
 	markup: "",
 	infile: "",
-	outfile: "",
+	outfile: "output.html",
 	css: `
 		h1 {color: #2f2f2f};
 	`
@@ -52,6 +52,7 @@ export abstract class MarkupParser {
 			debug("read file from command line");
 			const fs = require("fs-extra");
 			if (fs.existsSync(this._options.infile)) {
+				console.log(`Processing markup file ${this._options.infile}`);
 				this._options.markup = fs.readFileSync(
 					this._options.infile,
 					encoding

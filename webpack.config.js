@@ -7,7 +7,6 @@ let externals = Object.keys(pkg.dependencies);
 
 module.exports = {
 	mode,
-	target: "node",
 	performance: {hints: false},
 	node: {
 		fs: "empty"
