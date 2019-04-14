@@ -1,5 +1,4 @@
 import {nl} from "util.constants";
-import {parseHTML} from "util.html";
 import {PromiseFn} from "util.promise";
 import {HTMLResults, MarkupParser, MarkupTool, MarkupToolOptions} from "./base";
 
@@ -71,10 +70,8 @@ export class Restructuredtext extends MarkupParser implements MarkupTool {
 					let html = this.buildHTML(elements);
 					html = this.applyTemplate(html);
 					this.writeFile(this._options.outfile, html);
-					const doc = parseHTML(html);
 
 					resolve({
-						doc,
 						filename: this._options.outfile,
 						html
 					});

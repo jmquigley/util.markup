@@ -15,7 +15,6 @@ export enum MarkupMode {
 }
 
 export interface HTMLResults {
-	doc?: Document;
 	err?: string;
 	filename?: string;
 	html?: string;
@@ -83,7 +82,6 @@ export abstract class MarkupParser {
 		this._options = Object.assign({...defaultOptions}, options);
 
 		if (isNode && this._options.markup === "") {
-			debug("read file from command line");
 			const fs = require("fs-extra");
 			if (fs.existsSync(this._options.infile)) {
 				console.log(`Processing markup file ${this._options.infile}`);

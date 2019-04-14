@@ -58,7 +58,6 @@ parser.parse(options)
     .then((results: HTMLResults) => {
         // Do something with the output HTML
         console.log(results.html);      // HTML structure as a string
-        console.log(results.doc);       // HTML Document instance of the html
         console.log(results.filename);  // the filename where the HTML will be saved
     })
     .catch((err: string) => {
@@ -76,7 +75,6 @@ parser.parse(options)
 #### properties
 
 - `HTMLResults` - the results of the `parse` method.
-  - `doc {Document}` - HTML Document instance of nodes
   - `err {string}` - error message if the parsing of the document fails
   - `filename {string}` - file where the HTML output was stored (in a Node/electron environment only)
   - `html {string}` - the HTML output result from parsing the markdown type

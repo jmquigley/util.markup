@@ -1,6 +1,6 @@
 {
 	"name": "util.markup",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "Tools for manipulating markup documents",
 	"private": false,
@@ -34,7 +34,6 @@
 		"restructured": "^0.0.11",
 		"sprintf-js": "https://github.com/jmquigley/sprintf.js.git#dc62b1c",
 		"util.constants": "^0.0.26",
-		"util.html": "^0.0.6",
 		"util.join": "^0.0.25",
 		"util.promise": "^0.0.27",
 		"util.string": "^0.0.27",

@@ -1,5 +1,4 @@
 import Remarkable from "remarkable";
-import {parseHTML} from "util.html";
 import {PromiseFn} from "util.promise";
 import {HTMLResults, MarkupParser, MarkupTool, MarkupToolOptions} from "./base";
 
@@ -23,10 +22,8 @@ export class Markdown extends MarkupParser implements MarkupTool {
 					let html = md.render(this._options.markup);
 					html = this.applyTemplate(html);
 					this.writeFile(this._options.outfile, html);
-					const doc = parseHTML(html);
 
 					resolve({
-						doc,
 						filename: this._options.outfile,
 						html
 					});

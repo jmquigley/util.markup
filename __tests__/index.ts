@@ -25,11 +25,6 @@ test("Retrieve a asciidoc parser and convert to HTML", () => {
 		.then((results: HTMLResults) => {
 			expect(results.html).toMatchSnapshot();
 			assert(fs.existsSync(results.filename));
-
-			results.doc.querySelectorAll("*").forEach((it: any) => {
-				assert(it);
-				debug(" -> %O, %o", it, it.nodeName);
-			});
 		})
 		.catch((err: string) => console.error(err));
 });
@@ -48,11 +43,6 @@ test("Retrieve a markdown parser and convert to HTML", () => {
 		.then((results: HTMLResults) => {
 			expect(results.html).toMatchSnapshot();
 			assert(fs.existsSync(results.filename));
-
-			results.doc.querySelectorAll("*").forEach((it: any) => {
-				assert(it);
-				debug(" -> %O, %o", it, it.nodeName);
-			});
 		})
 		.catch((err: string) => console.error(err));
 });
@@ -73,11 +63,6 @@ test("Retrieve a restructuredtext parser and convert to HTML", () => {
 		.then((results: HTMLResults) => {
 			expect(results.html).toMatchSnapshot();
 			assert(fs.existsSync(results.filename));
-
-			results.doc.querySelectorAll("*").forEach((it: any) => {
-				assert(it);
-				debug(" -> %O, %o", it, it.nodeName);
-			});
 		})
 		.catch((err: string) => console.error(err));
 });
