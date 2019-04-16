@@ -18,10 +18,13 @@ export class Markdown extends MarkupParser implements MarkupTool {
 				try {
 					this.parseOptions(options);
 
-					const md = new Remarkable();
-					let html = md.render(this._options.markup);
-					html = this.applyTemplate(html);
-					this.writeFile(this._options.outfile, html);
+					let html: string = "";
+					if (this._options.markup) {
+						const md = new Remarkable();
+						html = md.render(this._options.markup);
+						html = this.applyTemplate(html);
+						this.writeFile(this._options.outfile, html);
+					}
 
 					resolve({
 						filename: this._options.outfile,

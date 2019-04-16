@@ -19,9 +19,12 @@ export class Asciidoc extends MarkupParser implements MarkupTool {
 				try {
 					this.parseOptions(options);
 
-					let html = asciidoctor.convert(this._options.markup);
-					html = this.applyTemplate(html);
-					this.writeFile(this._options.outfile, html);
+					let html: string = "";
+					if (this._options.markup) {
+						html = asciidoctor.convert(this._options.markup);
+						html = this.applyTemplate(html);
+						this.writeFile(this._options.outfile, html);
+					}
 
 					resolve({
 						filename: this._options.outfile,

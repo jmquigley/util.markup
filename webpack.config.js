@@ -7,9 +7,7 @@ let mode = process.env.NODE_ENV || "development";
 module.exports = {
 	mode,
 	performance: {hints: false},
-	node: {
-		fs: "empty"
-	},
+	target: "node",
 	entry: [path.resolve(__dirname, "index.js")],
 	output: {
 		path: path.resolve(__dirname),

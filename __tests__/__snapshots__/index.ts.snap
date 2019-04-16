@@ -488,3 +488,7 @@ TIP: lorem ipsum
 </html>
 "
 `;
+
+exports[`Retrieve an empty Markdown file 1`] = `""`;
+
+exports[`Try to call parse with no options 1`] = `""`;

@@ -66,3 +66,27 @@ test("Retrieve a restructuredtext parser and convert to HTML", () => {
 		})
 		.catch((err: string) => console.error(err));
 });
+
+test("Retrieve an empty Markdown file", () => {
+	const parser: MarkupTool = MarkupFactory.instance(MarkupMode.markdown);
+	assert(parser);
+
+	return parser
+		.parse({markup: ""})
+		.then((results: HTMLResults) => {
+			expect(results.html).toMatchSnapshot();
+		})
+		.catch((err: string) => console.error(err));
+});
+
+test("Try to call parse with no options", () => {
+	const parser: MarkupTool = MarkupFactory.instance(MarkupMode.markdown);
+	assert(parser);
+
+	return parser
+		.parse()
+		.then((results: HTMLResults) => {
+			expect(results.html).toMatchSnapshot();
+		})
+		.catch((err: string) => console.error(err));
+});

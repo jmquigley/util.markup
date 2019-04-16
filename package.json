@@ -1,6 +1,6 @@
 {
 	"name": "util.markup",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "Tools for manipulating markup documents",
 	"private": false,
@@ -37,7 +37,7 @@
 		"util.join": "^0.0.25",
 		"util.promise": "^0.0.27",
 		"util.string": "^0.0.27",
-		"util.toolbox": "^0.0.77",
+		"util.toolbox": "^0.0.78",
 		"yargs": "^13.2.2"
 	},
 	"devDependencies": {

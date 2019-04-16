@@ -54,22 +54,27 @@ export class Restructuredtext extends MarkupParser implements MarkupTool {
 				try {
 					this.parseOptions(options);
 
-					const elements = restructured.parse(this._options.markup);
+					let html: string = "";
+					if (this._options.markup) {
+						const elements = restructured.parse(
+							this._options.markup
+						);
 
-					if (pkg.debug) {
-						if (this._options.outfile) {
-							this.writeFile(
-								`${this._options.outfile}.json`,
-								JSON.stringify(elements, null, 4)
-							);
+						if (pkg.debug) {
+							if (this._options.outfile) {
+								this.writeFile(
+									`${this._options.outfile}.json`,
+									JSON.stringify(elements, null, 4)
+								);
+							}
+
+							this.showRsTElements(elements);
 						}
 
-						this.showRsTElements(elements);
+						html = this.buildHTML(elements);
+						html = this.applyTemplate(html);
+						this.writeFile(this._options.outfile, html);
 					}
-
-					let html = this.buildHTML(elements);
-					html = this.applyTemplate(html);
-					this.writeFile(this._options.outfile, html);
 
 					resolve({
 						filename: this._options.outfile,
