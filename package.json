@@ -1,6 +1,6 @@
 {
 	"name": "util.markup",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"author": "jmquigley <jmquigley@outlook.com>",
 	"description": "Tools for manipulating markup documents",
 	"private": false,

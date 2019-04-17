@@ -3,7 +3,7 @@ const webpack = require("webpack");
 const pkg = require("./package.json");
 
 const mode = process.env.NODE_ENV || "development";
-const externals = Object.keys(pkg.dependencies);
+// const externals = Object.keys(pkg.dependencies);
 
 module.exports = {
 	mode,
@@ -31,7 +31,6 @@ module.exports = {
 	resolveLoader: {
 		modules: [path.join(__dirname, "node_modules")]
 	},
-	externals,
 	module: {
 		rules: [
 			{
