@@ -2,12 +2,13 @@ const path = require("path");
 const webpack = require("webpack");
 const pkg = require("./package.json");
 
-let mode = process.env.NODE_ENV || "development";
+const mode = process.env.NODE_ENV || "development";
+const externals = Object.keys(pkg.dependencies);
 
 module.exports = {
 	mode,
-	performance: {hints: false},
 	target: "node",
+	performance: {hints: false},
 	entry: [path.resolve(__dirname, "index.js")],
 	output: {
 		path: path.resolve(__dirname),
@@ -30,6 +31,7 @@ module.exports = {
 	resolveLoader: {
 		modules: [path.join(__dirname, "node_modules")]
 	},
+	externals,
 	module: {
 		rules: [
 			{

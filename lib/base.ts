@@ -34,7 +34,7 @@ export interface MarkupTool {
 const defaultOptions: MarkupToolOptions = {
 	markup: "",
 	infile: "",
-	outfile: "output.html",
+	outfile: "",
 	css: `
 		h2 {color: #ea1a1a};
 	`
