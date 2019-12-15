@@ -1,6 +1,7 @@
-import Remarkable from "remarkable";
 import {PromiseFn} from "util.promise";
 import {HTMLResults, MarkupParser, MarkupTool, MarkupToolOptions} from "./base";
+
+const {Remarkable} = require("remarkable");
 
 // const debug = require("debug")("util.markup::markdown");
 

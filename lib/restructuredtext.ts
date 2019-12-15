@@ -232,9 +232,7 @@ export class Restructuredtext extends MarkupParser implements MarkupTool {
 			.join("");
 
 		let s: string = "";
-		s += `${nl}<h${element.depth}>${titleChildren}</h${
-			element.depth
-		}>${nl}`;
+		s += `${nl}<h${element.depth}>${titleChildren}</h${element.depth}>${nl}`;
 		s += `${children}${nl}`;
 
 		return s;
